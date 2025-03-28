@@ -1,0 +1,39 @@
+<div>
+    <h1 class="myH1">View unpaid bills</h1>
+</div>
+
+
+<div class="myCenter">
+    <table class="bills">
+        <tr>
+            <th>Meter No</th>
+            <th>Bill Date</th>
+            <th>Consumed units</th>
+            <th>Total amount</th>
+            <th>Due date</th>
+            <th>Paid</th>
+        </tr>
+  
+        <tr *ngFor="let bill of bills; index as i;">      
+            <td>{{bill.meterNo}}</td>
+            <td>{{bill.billDate | date: 'mediumDate'}}</td>  
+            <td>{{bill.consumed}}</td>
+            <td>{{bill.amount}}</td>
+            <td>{{bill.dueDate | date: 'mediumDate'}}</td>
+            <td>{{bill.paid}}</td>
+            <!-- <td>{{customer.bill.meterNo}}</td> -->
+            <!-- <td style="text-align:center" *ngIf="bill.paid==='NO' else elseBlock"><button mat-raised-button color="black" (click)="payBill($event, i)">Pay Bill</button></td>
+            <td style="text-align:center"><ng-template #elseBlock><button mat-raised-button color="black" disabled="true">Bill is already paid</button></ng-template></td> -->
+            <!-- <td style="text-align:center;"><a mat-stroked-button color="black" routerLink="/updateCustomer/{{customer.custId}}">Update</a></td> -->
+            <!-- <td style="text-align:center;"><a mat-stroked-button color="black" routerLink="/generateBill/{{customer?.bill?.meterNo}}">Generate</a></td> -->
+        </tr>
+    </table>
+    <br><br>
+    <div class="myMain">  
+        
+    </div>
+    <div class="myMain">  
+        
+    </div>
+    
+</div>

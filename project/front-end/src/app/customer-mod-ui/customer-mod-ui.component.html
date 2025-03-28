@@ -1,0 +1,112 @@
+<div>
+    <h1 class="myH1">Electricity Bill Department</h1>
+</div>
+
+<div class="container">
+    <h2 class="myH2">Update Customer module</h2>
+    <div class="form-div">
+        <form [formGroup]="myForm" (ngSubmit)="mySubmit()">
+            <table class="myTable">
+                <tr>
+                    <div>
+                        <td><label for="customerName">Customer name</label></td>
+                        <td><input type="text" placeholder="Enter customer name" [(ngModel)]="customer.custName" name="customerName" id="customerName"
+                                formControlName="name" >
+                            <div *ngIf="name!.invalid && (name!.dirty || name!.touched)">
+                                Name is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="address">Address</label></td>
+                        <td><input type="text" placeholder="customer.address" [(ngModel)]="customer.address" name="address" id="address"
+                                formControlName="address" >
+                            <div *ngIf="address!.invalid && (address!.dirty || address!.touched)">
+                                Address is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="phone">Phone No.</label></td>
+                        <td><input type="text" placeholder="customer.phone" [(ngModel)]="customer.phone" name="phone" id="phone"
+                                formControlName="phone">
+                            <div *ngIf="phone!.invalid && (phone!.dirty || phone!.touched)">
+                                Phone number is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="emailId">Email Id</label></td>
+                        <td><input type="text" placeholder="customer.emailId" [(ngModel)]="customer.emailId" name="emailId" id="emailId"
+                                formControlName="emailId" >
+                            <div *ngIf="emailId!.invalid && (emailId!.dirty || emailId!.touched)">
+                                Email Id is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                
+                <!-- <tr>
+                    <div>
+                        <td><label for="meterNo">Meter No.</label></td>
+                        <td><input type="number" placeholder="customer.meterNo" name="meterNo" id="meterNo"
+                                formControlName="meterNo" [(ngModel)]="customer.meterNo">
+                                <div *ngIf="meterNo?.invalid && (meterNo?.dirty || meterNo?.touched)">
+                                    <div *ngIf="meterNo?.errors?.['required']">
+                                        Meter Number is required
+                                    </div>
+                                    <div *ngIf="meterNo?.errors?.['min']">
+                                        Minimum meter no. is 1
+                                    </div>
+                                </div>
+                        </td>
+                    </div>
+                </tr> -->
+
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="confirm">Confirm</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="confirm" name="confirm" required (click)="toggleConfirmed()"
+                                [(ngModel)]="isConfirmed">
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="myCenter">
+                        <div *ngIf="isConfirmed">
+                            <td>
+                                <button mat-raised-button color="primary" type="submit">Submit</button>
+                            </td>
+                            <td>
+                                <button mat-raised-button color="warn" type="reset">Clear</button>
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+
+    <div class="myMain">
+        <a mat-stroked-button routerLink="/showCustomer">View Customers</a>
+    </div>
+    <div *ngIf="msg">
+        {{msg}}
+    </div>
+</div>

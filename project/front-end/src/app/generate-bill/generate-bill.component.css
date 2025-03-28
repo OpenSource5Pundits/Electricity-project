@@ -1,0 +1,64 @@
+.myTable 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 700px;
+    height: 400px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d4e3f3;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=text], [type=number], [type=date], [type=checkbox], select, textarea 
+{
+    width: 150px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: content-box;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    resize: vertical;
+}
+
+.myH1
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+    color:#0040FF;
+}
+
+.myMain
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font: size 30px;
+    color:#0040FF;
+}
+
+.myH1
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+}
+
+.myH2
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:20px;
+    color:#0040FF;
+}
+
+.myCenter
+{
+    margin-left: auto;
+    margin-right: auto;
+}

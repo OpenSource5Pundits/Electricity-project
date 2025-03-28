@@ -1,0 +1,47 @@
+<div>
+    <h1 class="myH1">View Customers</h1>
+</div>
+
+
+<div class="myCenter">
+    <table class="customers">
+        <tr>
+            <td style="text-align:center" class="myMain"><a mat-stroked-button routerLink="/home">Home</a></td>
+            <td style="text-align:center" class="myMain"><a mat-stroked-button routerLink="/addCustomer">Add a new customer</a></td>
+            <td style="text-align:center" class="myMain"><a mat-stroked-button routerLink="/viewBills">View All Bills</a></td>
+        </tr>
+    </table>
+    <table class="customers">
+        <tr>
+            <th>Customer id</th>
+            <th>Customer name</th>
+            <th>Address</th>
+            <th>Phone number</th>
+            <th>Email id</th>
+            <th>Meter No</th>
+            <th>Remove a customer</th>
+            <th>Update a customer</th>
+            <th>Generate Bill</th>
+        </tr>
+  
+        <tr *ngFor="let customer of customers; index as i;">      
+            <td>{{customer.custId}}</td>
+            <td>{{customer.custName}}</td>  
+            <td>{{customer.address}}</td>
+            <td>{{customer.phone}}</td>
+            <td>{{customer.emailId}}</td>
+            <td>{{customer.bill.meterNo}}</td>
+            <td style="text-align:center"><button mat-raised-button color="warn" (click)="delCustomer($event, i)">Delete</button></td>
+            <td style="text-align:center;"><a mat-stroked-button color="black" routerLink="/updateCustomer/{{customer.custId}}">Update</a></td>
+            <td style="text-align:center;"><a mat-stroked-button color="black" routerLink="/generateBill/{{customer?.bill?.meterNo}}">Generate</a></td>
+        </tr>
+    </table>
+    <br><br>
+    <div class="myMain">  
+        
+    </div>
+    <div class="myMain">  
+        
+    </div>
+    
+  </div>

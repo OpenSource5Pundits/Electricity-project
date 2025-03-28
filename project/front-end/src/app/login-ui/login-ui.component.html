@@ -1,0 +1,53 @@
+<body>
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="mySubmit()"name="myForm">
+
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" formControlName="uname"><br>
+    <br><div *ngIf="uname?.invalid && (uname?.dirty || uname?.touched)" class="msg">
+        User Name is required
+     </div><br><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="pass">
+    <br>
+    <br>
+    <div *ngIf="pass?.invalid &&  (pass?.dirty || pass?.touched)" class="msg">
+        <div *ngIf="pass?.errors?.['minlength']">
+            Minimum length is Rs 6
+        </div>
+        <div *ngIf="pass?.errors?.['required']" class="msg">
+            Password is required
+        </div> 
+    </div> <br><br>
+    <span class="forgot-password">
+        <a routerLink="/forgetPass">Forgot Password</a>
+    </span>
+    <br>
+    <br>
+
+    <input type="submit" value="Login">
+    <label>
+        <br>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+</form>
+</div>
+<div>
+    <p *ngIf="msg" class="msg">{{msg}}</p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a routerLink=""
+class="button">Cancel</a>
+</body>

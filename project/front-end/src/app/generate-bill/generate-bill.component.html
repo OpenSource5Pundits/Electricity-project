@@ -1,0 +1,101 @@
+<div>
+    <h1 class="myH1">Electricity Bill Department</h1>
+</div>
+
+<div class="container">
+    <h2 class="myH2">Generate Bill module</h2>
+    <div class="form-div">
+        <form [formGroup]="myForm" (ngSubmit)="mySubmit()">
+            <table class="myTable">
+                <tr>
+                    <div>
+                        <td><label for="billDate">Bill Date</label></td>
+                        <td><input type="date" name="billDate" id="billDate" formControlName="billDate"
+                                [(ngModel)]="bill.billDate">
+                            <div *ngIf="billDate!.invalid && (billDate!.dirty || billDate!.touched)">
+                                Bill date is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="cunit">Current units</label></td>
+                        <td><input type="number" placeholder="Enter current units" name="cunit" id="cunit"
+                                 formControlName="cunits" [(ngModel)]="bill!.cunits">
+                            <div *ngIf="cunits?.invalid && (cunits?.dirty || cunits?.touched)">
+                                <div *ngIf="cunits?.errors?.['required']">
+                                    Current units is required
+                                </div>
+                                <div *ngIf="cunits?.errors?.['min']">
+                                    Current units should atleast be 200
+                                </div>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="punit">Previous units</label></td>
+                        <td><input type="number" placeholder="Enter previous units" name="punit" id="punit"
+                                 formControlName="punits" [(ngModel)]="bill.punits">
+                            <div *ngIf="punits?.invalid && (punits?.dirty || punits?.touched)">
+                                <div *ngIf="punits?.errors?.['required']">
+                                    Previous units is required
+                                </div>
+                                <div *ngIf="punits?.errors?.['min']">
+                                    Previous units should always be less than 3000 units
+                                </div>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="dueDate">Due date</label></td>
+                        <td><input type="date" name="dueDate" id="dueDate" formControlName="dueDate"
+                                [(ngModel)]="bill.dueDate">
+                            <div *ngIf="dueDate!.invalid && (dueDate!.dirty || dueDate!.touched)">
+                                Due date is required
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="confirm">Confirm</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="confirm" name="confirm" required (click)="toggleConfirmed()"
+                                [(ngModel)]="isConfirmed">
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="myCenter">
+                        <div *ngIf="isConfirmed">
+                            <td>
+                                <button mat-raised-button color="primary" type="submit">Submit</button>
+                            </td>
+                            <td>
+                                <button mat-raised-button color="warn" type="reset">Clear</button>
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+
+    <div class="myMain">
+        <a mat-stroked-button routerLink="/viewBills">View Bills</a>
+    </div>
+    <div *ngIf="msg">
+        {{msg}}
+    </div>
+</div>
